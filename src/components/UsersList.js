@@ -3,15 +3,12 @@ import { connect } from 'react-redux'
 
 const UsersList = ({ users }) => {
 
-    const listUsers = () => {
-        users.map(u => <ul>
-            <li key={u.id}>{u.username}</li>
-        </ul>)
-    }
 
     return(
         <div>
-           {listUsers}
+           {users.map(u => <ul>
+                <li key={u.id}>{u.username}</li>
+            </ul>)}
         </div>
     )
 }
