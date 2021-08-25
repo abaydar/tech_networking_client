@@ -8,13 +8,19 @@ import thunk from 'redux-thunk'
 
 import App from './components/App'
 import { rootReducer } from './reducers/rootReducer';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 
-const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(
+    rootReducer, 
+    composeWithDevTools(applyMiddleware(thunk))
+    )
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <Router>
+            <App />
+        </Router>
     </Provider>,
     document.getElementById('root')
 )
