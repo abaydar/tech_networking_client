@@ -1,9 +1,15 @@
-import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import JSONPretty from 'react-json-pretty';
+import { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { fetchUserProfile } from '../actions/authActions';
 
-const Profile = () => {
+
+const Profile = (props) => {
     const { user, isAuthenticated } = useAuth0()
+    useEffect(() => {
+        props.fetchUserProfile(user)
+    }, [])
 
     return (
         isAuthenticated && (
@@ -19,5 +25,5 @@ const Profile = () => {
 
 }
 
-export default Profile
+export default connect(null, {fetchUserProfile})(Profile)
 

@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { fetchPosts } from '../actions/postsActions'
+import PostsForm from './PostsForm'
 import PostsList from './PostsList'
-// import UsersForm from './UsersForm'
-// import UsersList from './UsersList'
 
 
 class PostsContainer extends Component {
@@ -17,6 +16,7 @@ class PostsContainer extends Component {
         return(
             <div>
                 Posts Container
+                <PostsForm />
                 <PostsList />
             </div>
         )
