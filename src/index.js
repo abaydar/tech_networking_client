@@ -9,7 +9,10 @@ import thunk from 'redux-thunk'
 import App from './components/App'
 import { rootReducer } from './reducers/rootReducer';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react'
 
+const domain = process.env.REACT_APP_AUTH0_DOMAIN
+const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID
 
 const store = createStore(
     rootReducer, 
@@ -17,10 +20,15 @@ const store = createStore(
     )
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
+    <Auth0Provider
+        domain={domain}
+        clientId={clientId}
+        redirectUri={window.location.origin}>
+        <Provider store={store}>
+            <Router>
+                <App />
+            </Router>
+        </Provider>
+    </Auth0Provider>,
     document.getElementById('root')
 )

@@ -12,7 +12,6 @@ class UsersContainer extends Component {
         this.props.fetchUsers()
     }
 
-
     render(){
         return(
             <div>

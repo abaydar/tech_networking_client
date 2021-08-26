@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 const UsersList = ({ users }) => {
 
-
     return(
         <div>
            {users.map(u => <ul>
