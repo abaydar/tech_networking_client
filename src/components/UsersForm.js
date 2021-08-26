@@ -28,7 +28,7 @@ class UsersForm extends Component {
                 <input type="text" value={this.state.username} onChange={this.handleChange} name="username" />
                 <label>password: </label>
                 <input type="password" value={this.state.password} onChange={this.handleChange} name="password" />
-                <input type="submit" value="Log In"/>
+                <input type="submit" value="Add User"/>
             </form>
         )
     }

@@ -6,6 +6,9 @@ import Profile from './Profile';
 import Router from './Router'
 import { useAuth0 } from '@auth0/auth0-react';
 
+import "../App.css"
+import NavBar from './NavBar';
+
 const App = () => {
     const { isLoading } = useAuth0()
 
@@ -13,6 +16,7 @@ const App = () => {
 
     return(
         <div>
+            <NavBar />
             <LoginButton />
             <LogoutButton />
             <Profile />

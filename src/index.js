@@ -8,7 +8,7 @@ import thunk from 'redux-thunk'
 
 import App from './components/App'
 import { rootReducer } from './reducers/rootReducer';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react'
 
 const domain = process.env.REACT_APP_AUTH0_DOMAIN
