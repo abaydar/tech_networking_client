@@ -7,8 +7,6 @@ import UserPostsList from './UserPostsList';
 const Profile = (props) => {
     const { user, isAuthenticated } = useAuth0()
 
-
-    //componentDidMount
     useEffect(() => {
         props.fetchUserProfile(user)        
     }, [])

@@ -5,6 +5,7 @@ const PostsList = ({ posts }) => {
 
     return(
         <div>
+            <h1>Posts</h1>
            {posts.map(p => <ul>
                 <li key={p.id} >
                     <h3> {p.title} </h3>
