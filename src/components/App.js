@@ -19,7 +19,6 @@ const App = () => {
             <NavBar />
             <LoginButton />
             <LogoutButton />
-            <Profile />
             <Router />
         </div>
     )

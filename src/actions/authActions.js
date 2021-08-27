@@ -9,3 +9,5 @@ export const fetchUserProfile = (user) => {
         .then(user => dispatch({ type: 'FETCH_USER_PROFILE', payload: user }))
     }
 }
+
+

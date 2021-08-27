@@ -1,15 +1,18 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import JSONPretty from 'react-json-pretty';
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchUserProfile } from '../actions/authActions';
-
+import UserPostsList from './UserPostsList';
 
 const Profile = (props) => {
     const { user, isAuthenticated } = useAuth0()
+
+
+    //componentDidMount
     useEffect(() => {
-        props.fetchUserProfile(user)
+        props.fetchUserProfile(user)        
     }, [])
+    
 
     return (
         isAuthenticated && (
@@ -17,13 +20,16 @@ const Profile = (props) => {
                 <img src={user.picture} alt={user.name}/>
                 <h2>{user.name}</h2>
                 <p>{user.email}</p>
-                <JSONPretty data={user}>
-                </JSONPretty>
+            <UserPostsList />
             </div>
         )
     )
 
 }
 
-export default connect(null, {fetchUserProfile})(Profile)
+const mapStateToProps = (state) => {
+    return {userId: state.auth.id}
+}
+
+export default connect(mapStateToProps, { fetchUserProfile })(Profile)
 
