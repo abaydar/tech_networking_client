@@ -11,14 +11,13 @@ const Profile = (props) => {
         props.fetchUserProfile(user)        
     }, [])
     
-
     return (
         isAuthenticated && (
             <div>
                 <img src={user.picture} alt={user.name}/>
                 <h2>{user.name}</h2>
                 <p>{user.email}</p>
-            <UserPostsList />
+            <UserPostsList user={props.user}/>
             </div>
         )
     )
@@ -26,7 +25,9 @@ const Profile = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    return {userId: state.auth.id}
+    return {
+        user: state.auth
+    }
 }
 
 export default connect(mapStateToProps, { fetchUserProfile })(Profile)

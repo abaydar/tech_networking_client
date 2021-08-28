@@ -1,20 +1,31 @@
-import React from 'react';
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addLike } from '../actions/postsActions'
 
-const PostsList = ({ posts }) => {
+class PostsList extends Component{
+    
+    addLike = (post) => {
+        this.props.addLike(post)
+    }
 
+   render(){
     return(
         <div>
             <h1>Posts</h1>
-           {posts.map(p => <ul>
+           {this.props.posts.map(p => <ul>
                 <li key={p.id} >
                     <h3> {p.title} </h3>
                     <h4> Posted by: {p.user.email}</h4>
                     <p> {p.content} </p>
+                    <h4> {p.likes} likes</h4>
+                    <button onClick={() => this.addLike(p)}>
+                        Like
+                    </button>
                 </li>
             </ul>)}
         </div>
     )
+    }
 }
 
 const mapStateToProps = state => {
@@ -23,4 +34,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(PostsList)
+export default connect(mapStateToProps, { addLike })(PostsList)

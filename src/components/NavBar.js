@@ -6,13 +6,13 @@ const NavBar = () => {
     return (
         <div id="nav-bar">
             <Link to="/users">
-                <button id="users">Users</button>
+                <button id="users">All Users</button>
             </Link>
             <Link to="/posts">
-                <button id="posts">Posts</button>
+                <button id="posts">All Posts</button>
             </Link>
             <Link to="/profile">
-                <button id="profile">Profile</button>
+                <button id="profile">My Profile</button>
             </Link>
         </div>
     )

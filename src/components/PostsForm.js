@@ -28,7 +28,7 @@ class PostsForm extends Component {
                 <label>Title: </label>
                 <input type="text" value={this.state.title} onChange={this.handleChange} name="title" />
                 <label>Content: </label>
-                <input type="textarea" value={this.state.content} onChange={this.handleChange} name="content" />
+                <textarea value={this.state.content} onChange={this.handleChange} name="content" />
                 <input type="submit" value="Publish"/>
             </form>
         )

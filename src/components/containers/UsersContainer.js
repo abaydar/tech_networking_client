@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchUsers } from '../actions/usersActions'
-import UsersForm from './UsersForm'
-import UsersList from './UsersList'
+import { fetchUsers } from '../../actions/usersActions'
+import UsersList from '../UsersList'
 
 
 class UsersContainer extends Component {
@@ -15,9 +14,8 @@ class UsersContainer extends Component {
     render(){
         return(
             <div>
-                Users Container
+                All Users
                 <UsersList />
-                <UsersForm />
             </div>
         )
     }

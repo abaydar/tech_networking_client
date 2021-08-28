@@ -1,10 +1,10 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import UsersContainer from './UsersContainer'
+import UsersContainer from './containers/UsersContainer'
 import Home from './Home'
 import Profile from './Profile'
-import PostsContainer from './PostsContainer'
+import PostsContainer from './containers/PostsContainer'
 
 const Router = () => {
     return(

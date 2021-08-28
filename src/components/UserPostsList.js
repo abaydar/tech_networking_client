@@ -9,16 +9,15 @@ const UserPostsList = (props) => {
         props.fetchUsers()        
     }, [])
     
-    // const userId = () => {return props.userId}
-
-    const userId = props.userId
+    const userId = props.user.id
 
     const findCurrentUser = (userId) => {
         return props.users.find((u) => {
             return u.id === userId
-            // debugger
         })
     }
+
+    // console.log(findCurrentUser(userId).posts)
 
     return (
         <div>
@@ -30,7 +29,6 @@ const UserPostsList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        userId: state.auth.id,
         users: state.users
     }
 }
