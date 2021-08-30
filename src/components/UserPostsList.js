@@ -5,32 +5,32 @@ import PostsList from './PostsList'
 
 const UserPostsList = (props) => {
  
-    useEffect(() => {
-        props.fetchUsers()        
-    }, [])
+    // useEffect(() => {
+    //     props.fetchUsers()        
+    // }, [])
     
-    const userId = props.user.id
+    // const userId = props.userDB.id
 
-    const findCurrentUser = (userId) => {
-        return props.users.find((u) => {
-            return u.id === userId
-        })
-    }
+    // const findCurrentUser = (userId) => {
+    //     return props.users.find((u) => {
+    //         return u.id === userId
+    //     })
+    // }
 
     // console.log(findCurrentUser(userId).posts)
 
     return (
         <div>
-            {findCurrentUser(userId) ? <PostsList posts={findCurrentUser(userId).posts} /> : "Loading..."}
+            <PostsList posts={props.userDB.posts} />
         </div>
     )
 
 }
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.users
-    }
-}
+// const mapStateToProps = (state) => {
+//     return {
+//         users: state.users
+//     }
+// }
 
-export default connect(mapStateToProps, { fetchUsers })(UserPostsList)
+export default connect(null, { fetchUsers })(UserPostsList)

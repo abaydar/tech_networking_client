@@ -27,7 +27,7 @@ class PostsList extends Component{
     return(
         <div>
             <h1>Posts</h1>
-           {this.props.posts.map(p => <ul>
+           {this.props.posts && this.props.posts.map(p => <ul>
         <li key={p.id} >
             <h3> {p.title} </h3>
             <h4> Posted by: {p.user.email} - id: {p.user_id}</h4>
@@ -43,10 +43,4 @@ class PostsList extends Component{
     }
 }
 
-const mapStateToProps = state => {
-    return { 
-        posts: state.posts
-    }
-}
-
-export default connect(mapStateToProps)(PostsList)
+export default connect(null)(PostsList)

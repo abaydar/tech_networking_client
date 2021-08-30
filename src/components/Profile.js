@@ -11,15 +11,17 @@ const Profile = (props) => {
     useEffect(() => {
         props.fetchUserProfile(user)        
     }, [])
-    
+
+    // console.log(props.userDB)
+
     return (
         isAuthenticated && (
             <div>
                 <img src={user.picture} alt={user.name}/>
                 <h2>{user.name}</h2>
                 <p>{user.email}</p>
-            <UserPostsList user={props.user}/>
-            <FriendshipsContainer />
+            <UserPostsList userDB={props.userDB}/>
+            <FriendshipsContainer userDB={props.userDB}/>
             </div>
         )
     )
@@ -28,7 +30,7 @@ const Profile = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.auth
+        userDB: state.auth
     }
 }
 

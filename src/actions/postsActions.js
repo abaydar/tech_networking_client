@@ -22,10 +22,10 @@ export const addPost = post => {
 //     return (dispatch) => {
 //         fetch(`http://localhost:3000/posts/${post.id}`, {
 //             method: 'PATCH',
-//             body: JSON.stringify(post),
+//             body: JSON.stringify(post.likes += 1 ),
 //             headers: { 'Content-Type': 'application/json'}
 //         })
 //         .then(resp => resp.json())
-//         .then(post => dispatch({ type: 'ADD_LIKE', payload: post.likes + 1 }))
+//         .then(post => dispatch({ type: 'ADD_LIKE', payload: post.likes += 1 }))
 //     }  
 // }

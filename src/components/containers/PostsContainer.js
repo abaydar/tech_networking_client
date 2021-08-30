@@ -17,10 +17,16 @@ class PostsContainer extends Component {
             <div>
                 All Posts
                 <PostsForm />
-                <PostsList />
+                <PostsList posts={this.props.posts}/>
             </div>
         )
     }
 }
 
-export default connect(null, { fetchPosts })(PostsContainer)
+const mapStateToProps = state => {
+    return { 
+        posts: state.posts
+    }
+}
+
+export default connect(mapStateToProps, { fetchPosts })(PostsContainer)
