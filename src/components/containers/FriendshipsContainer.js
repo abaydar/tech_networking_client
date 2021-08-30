@@ -10,11 +10,18 @@ const FriendshipsContainer = (props) => {
 
     return (
         <div>
-            
+            <h1>Friendships</h1>
+            {props.friendships.map((f) => <ul>
+                <li key={f.id}>{f.user_id} - {f.friend_id}</li>
+            </ul>)}
         </div>
     )
 
 
 }
 
-export default connect(null, { fetchFriends })(FriendshipsContainer)
+const mapStateToProps = (state) => {
+    return { friendships: state.friendships }
+}
+
+export default connect(mapStateToProps, { fetchFriends })(FriendshipsContainer)

@@ -4,8 +4,8 @@ export const postsReducer = (state = [], action) => {
             return action.payload
         case "ADD_POST":
             return [...state, action.payload]
-        case "ADD_LIKE":
-            return action.payload.likes + 1
+        // case "ADD_LIKE":
+        //     return action.payload
         default:
             return state
     }
