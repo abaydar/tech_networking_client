@@ -18,9 +18,9 @@ class PostsList extends Component{
             <h4> Posted by: {p.user.email} - id: {p.user_id}</h4>
             <p> {p.content} </p>
             <h4> {p.likes} likes</h4>
-            <button onClick={() => this.addLike(p)}>
+            {this.props.user ? null : <button onClick={() => this.addLike(p)}>
                 Like
-            </button>
+            </button>}
         </li>
     </ul>)}
         </div>

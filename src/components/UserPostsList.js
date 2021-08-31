@@ -9,7 +9,7 @@ const UserPostsList = (props) => {
 
     return (
         <div>
-            <PostsList posts={props.userDB.posts} />
+            
         </div>
     )
 

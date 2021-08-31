@@ -19,13 +19,15 @@ export const addPost = post => {
 }
 
 export const addLike = (post) => {
-    return (dispatch) => {
+    return (dispatch) => {       
         fetch(`http://localhost:3000/posts/${post.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json'},
-            body: JSON.stringify(post.likes += 1 )
+            body: JSON.stringify({
+                "likes": ++post.likes
+            })
         })
         .then(resp => resp.json())
-        .then(post => dispatch({ type: 'ADD_LIKE', payload: post.likes += 1 }))
+        .then(post => dispatch({ type: 'ADD_LIKE', payload: post }))
     }  
 }

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchUserProfile } from '../actions/authActions';
 import FriendshipsContainer from './containers/FriendshipsContainer';
-import UserPostsList from './UserPostsList';
+import PostsList from './PostsList';
 
 const Profile = (props) => {
     const { user, isAuthenticated } = useAuth0()
@@ -20,7 +20,7 @@ const Profile = (props) => {
                 <img src={user.picture} alt={user.name}/>
                 <h2>{user.name}</h2>
                 <p>{user.email}</p>
-            <UserPostsList userDB={props.userDB}/>
+            <PostsList posts={props.userDB.posts} user={true} />
             <FriendshipsContainer userDB={props.userDB}/>
             </div>
         )
