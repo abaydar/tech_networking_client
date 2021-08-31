@@ -1,27 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { addLike } from '../actions/postsActions'
+import { addLike } from '../actions/postsActions'
 
 class PostsList extends Component{
     
-    // addLike = (post) => {
-    //     this.props.addLike(post)
-    // }
-
-    // renderPosts = () => {
-    //     this.props.posts.map(p => <ul>
-    //     <li key={p.id} >
-    //         <h3> {p.title} </h3>
-    //         <h4> Posted by: {p.user.email}</h4>
-    //         <p> {p.content} </p>
-    //         <h4> {p.likes} likes</h4>
-    //         {/* <button onClick={() => this.addLike(p)}>
-    //             Like
-    //         </button> */}
-    //     </li>
-    // </ul>)
-
-    // }
+    addLike = (post) => {
+        this.props.addLike(post)
+    }
 
    render(){
     return(
@@ -33,9 +18,9 @@ class PostsList extends Component{
             <h4> Posted by: {p.user.email} - id: {p.user_id}</h4>
             <p> {p.content} </p>
             <h4> {p.likes} likes</h4>
-            {/* <button onClick={() => this.addLike(p)}>
+            <button onClick={() => this.addLike(p)}>
                 Like
-            </button> */}
+            </button>
         </li>
     </ul>)}
         </div>
@@ -43,4 +28,4 @@ class PostsList extends Component{
     }
 }
 
-export default connect(null)(PostsList)
+export default connect(null, { addLike })(PostsList)

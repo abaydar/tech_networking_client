@@ -1,6 +1,4 @@
-import { connect } from 'react-redux'
-import { fetchFriends } from '../../actions/friendshipActions'
-import { useEffect } from 'react'
+
 
 const FriendshipsContainer = (props) => {
 
@@ -18,7 +16,6 @@ const FriendshipsContainer = (props) => {
         </div>
     )
 
-
 }
 
-export default connect(null)(FriendshipsContainer)
+export default FriendshipsContainer
