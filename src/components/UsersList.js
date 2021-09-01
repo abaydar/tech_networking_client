@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addFriend } from '../actions/friendshipActions'
+import { addFriend } from '../actions/usersActions'
+import UserCard from './UserCard';
 
 
 class UsersList extends Component{
     
-    addFriend = (userId, friend) => {
-        this.props.addFriend(userId, friend)
+    addFriend = (userId, friendId) => {
+        this.props.addFriend(userId, friendId)
     }
 
     
     render(){
         return(
             <div>
-            {Object.keys(this.props.users).map(userId => {
-                <ul>
-                <li key={userId}><Link  to={`/users/${userId}`}>{this.props.users[userId].email}</Link> 
-                <button onClick={() => this.addFriend(userId, this.props.friend)}></button>
-                </li>
-                </ul>})}
+                {this.props.users.map(user => {
+                    return (
+                    <UserCard id={user.id} email={user.email} friendships={user.friendships} posts={user.posts} currentUserId={this.props.authId}/>
+                    )
+                })}
             </div>
         )
     }
@@ -27,7 +26,7 @@ class UsersList extends Component{
 
 const mapStateToProps = (state) => {
     return {
-        friend: state.auth.id
+        authId: state.auth.id
     }
 }
 
@@ -43,3 +42,10 @@ export default connect(mapStateToProps, { addFriend })(UsersList)
 //     </li>
 //     </ul>
 // })
+
+// {Object.keys(this.props.users).map(userId => {
+//     return <ul>
+//     <li key={userId}><Link  to={`/users/${userId}`}>{this.props.users[userId].email}</Link> 
+//     <button onClick={() => this.addFriend(this.props.authId, userId)}>Add Friend</button>
+//     </li>
+//     </ul>})}

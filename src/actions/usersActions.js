@@ -8,6 +8,24 @@ export const fetchUsers = () => {
     }
 }
 
+export const addFriend = (userId, friendId) => {
+    const friendship = {
+        user_id: userId,
+        friend_id: friendId
+    }
+    return (dispatch) => {
+        fetch(`http://localhost:3000/friendships`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json'},
+            body: JSON.stringify(friendship)
+        })
+        .then(resp => resp.json())
+        .then(friendship => dispatch({ type: 'ADD_FRIEND', payload: friendship }))
+    }
+}
+
+
+
 // export const addUser = user => {
 //     return (dispatch) => {
 //         fetch('http://localhost:3000/users', {

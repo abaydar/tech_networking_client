@@ -5,6 +5,7 @@ import UsersContainer from './containers/UsersContainer'
 import Home from './Home'
 import Profile from './Profile'
 import PostsContainer from './containers/PostsContainer'
+// import UserShow from './UserShow'
 
 const Router = () => {
     return(
@@ -13,6 +14,7 @@ const Router = () => {
             <Route exact path='/users' component={UsersContainer} />
             <Route exact path='/profile' component={Profile} />
             <Route exact path='/posts' component={PostsContainer} />
+            {/* <Route path='/users/:id' component={UserShow} /> */}
         </Switch>
     )
 }
