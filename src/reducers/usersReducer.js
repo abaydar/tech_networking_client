@@ -3,8 +3,12 @@ export const usersReducer = (state = [], action) => {
         case "FETCH_USERS":
             return action.payload
         case "ADD_FRIEND":
-            // const user = state.find((u) => u.id === action.payload.user_id)
-            // return [...state, [...state.user.friendships, action.payload]]
+            const newUser = Object.assign({}, state.find((u) => u.id === action.payload.user_id)) //make copy so can modify friendhsip nondestructively
+            newUser.friendships.push(action.payload)
+            const userIndex = state.findIndex((u) => u.id === action.payload.user_id)
+            const firstHalf = state.slice(0, userIndex)
+            const secondHalf = state.slice(userIndex + 1)
+            return [...firstHalf, newUser, ...secondHalf]
         default:
             return state
     }
