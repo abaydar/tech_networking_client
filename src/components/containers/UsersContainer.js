@@ -12,7 +12,7 @@ class UsersContainer extends Component {
 
     render(){
         return(
-            <div>
+            <div class>
                 All Users
                 <UsersList users={this.props.users}/>
            </div>

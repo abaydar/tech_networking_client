@@ -22,12 +22,14 @@ class UserCard extends Component{
 
   render(){
     return (
-      <div>
-        <h3>{this.props.email}</h3>
-        {this.props.user ? null : <button onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button> }
-        {this.props.user ? null : <button onClick={this.renderPosts}>Posts</button>}
-        <div>
-          {this.state.buttonClicked ? <PostsList posts={this.props.posts}/> : null }
+      <div class="p-6 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-md flex items-center space-x-4">
+        <div class="flex-shrink-0">
+          <h3 class="text-xl font-medium text-black">{this.props.email}</h3>
+          {this.props.user ? null : <button onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button> }
+          {this.props.user ? null : <button onClick={this.renderPosts}>Posts</button>}
+          <div>
+            {this.state.buttonClicked ? <PostsList posts={this.props.posts}/> : null }
+          </div>
         </div>
       </div>
     );
