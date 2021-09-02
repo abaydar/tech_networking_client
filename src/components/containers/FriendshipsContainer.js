@@ -16,7 +16,3 @@ const FriendshipsContainer = (props) => {
 }
 
 export default FriendshipsContainer
-
-{/* <ul>
-                    <li key={f.id}>{f.friend.email}</li>
-                </ul> */}
