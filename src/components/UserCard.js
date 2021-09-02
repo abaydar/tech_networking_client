@@ -26,8 +26,10 @@ class UserCard extends Component{
         <div class="p-8 max-w-sm mx-auto bg-blue-200 rounded-xl shadow-md flex items-center space-x-4">
           <div class="flex-shrink-0">
             <h3 class="text-xl font-medium text-black">{this.props.email}</h3>
-            {this.props.user ? null : <button onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button> }
-            {this.props.user ? null : <button onClick={this.renderPosts}>Posts</button>}
+            <div class="flex p-2">
+              {this.props.user ? null : <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button> } 
+              {this.props.user ? null : <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={this.renderPosts}>Posts</button>}
+            </div>
             <div>
               {this.state.buttonClicked ? <PostsList posts={this.props.posts}/> : null }
             </div>
