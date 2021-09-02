@@ -24,9 +24,8 @@ class UserCard extends Component{
     return (
       <div>
         <h3>{this.props.email}</h3>
-        <button onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button>
-        {/* <PostsList posts={this.props.posts} /> */}
-        <button onClick={this.renderPosts}>Posts</button>
+        {this.props.user ? null : <button onClick={() => this.addFriend(this.props.currentUserId, this.props.id)}>Add Friend</button> }
+        {this.props.user ? null : <button onClick={this.renderPosts}>Posts</button>}
         <div>
           {this.state.buttonClicked ? <PostsList posts={this.props.posts}/> : null }
         </div>

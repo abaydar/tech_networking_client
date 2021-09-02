@@ -8,6 +8,12 @@ class PostsList extends Component{
         this.props.addLike(post)
     }
 
+    formatTime = (created) => {
+        const date = created.slice(0, 10)
+        const time = created.slice(11, 19)
+        return <h4>posted: {date} @ {time}</h4>
+    }
+
    render(){
     return(
         <div>
@@ -15,7 +21,8 @@ class PostsList extends Component{
            {this.props.posts && this.props.posts.map(p => <ul>
         <li key={p.id} >
             <h3> {p.title} </h3>
-            <h4> Posted by: {p.user.email} - id: {p.user_id}</h4>
+            {this.formatTime(p.created_at)}
+            <h4> by: {p.user.email} - id: {p.user_id}</h4>
             <p> {p.content} </p>
             <h4> {p.likes} likes</h4>
             {this.props.user ? null : <button onClick={() => this.addLike(p)}>
