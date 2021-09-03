@@ -25,7 +25,7 @@ class PostsContainer extends Component {
     render(){
         return(
             <div>
-                <button onClick={this.renderForm}>Create Post</button>
+                <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={this.renderForm}>Create Post</button>
                 <div>
                     {this.state.buttonClicked ? <PostsForm/> : null }
                 </div>

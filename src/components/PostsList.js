@@ -17,7 +17,6 @@ class PostsList extends Component{
    render(){
     return(
         <div class="p-4">
-            <h1>Posts</h1>
            {this.props.posts && this.props.posts.map(p => <ul class="p-4 max-w-sm mx-auto bg-purple-200 rounded-xl shadow-md flex items-center space-x-4 border-2">
         <li key={p.id} >
             <h3 class="text-xl font-medium text-black"> {p.title} </h3>
