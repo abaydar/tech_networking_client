@@ -20,6 +20,7 @@ class PostsForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.addPost({post: this.state})
+        this.setState({title: "", content: ""})
     }
 
     render(){

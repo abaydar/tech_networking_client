@@ -12,8 +12,7 @@ const Profile = (props) => {
         props.fetchUserProfile(user)        
     }, [])
 
-    // console.log(props.userDB)
-
+    
     return (
         isAuthenticated && (
             <div>

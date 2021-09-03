@@ -1,3 +1,10 @@
+const handleErrors = (response) => {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response.json();
+}
+
 export const fetchPosts = () => {
     return (dispatch) => {
         fetch('http://localhost:3000/posts')
@@ -13,8 +20,9 @@ export const addPost = post => {
             body: JSON.stringify(post),
             headers: { 'Content-Type': 'application/json'}
         })
-        .then(resp => resp.json())
+        .then(resp => handleErrors(resp))
         .then(post => dispatch({ type: 'ADD_POST', payload: post }))
+        .catch(error => dispatch({ type: 'ERROR', payload: error}))
     }    
 }
 

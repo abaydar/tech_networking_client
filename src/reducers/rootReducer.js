@@ -6,5 +6,5 @@ import { postsReducer } from "./postsReducer";
 export const rootReducer = combineReducers({
     users: usersReducer,
     auth: authReducer,
-    posts: postsReducer
+    postsR: postsReducer
 })
