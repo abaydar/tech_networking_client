@@ -13,7 +13,7 @@ class UsersContainer extends Component {
     render(){
         return(
             <div class>
-                All Users
+                <h1 class="text-center text-blue-700 text-2xl font-medium">Fellow Techies</h1>
                 <UsersList users={this.props.users}/>
            </div>
         )

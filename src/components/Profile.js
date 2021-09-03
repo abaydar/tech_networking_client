@@ -19,6 +19,7 @@ const Profile = (props) => {
                 <img src={user.picture} alt={user.name}/>
                 <h2>{user.name}</h2>
                 <p>{user.email}</p>
+            <h1 class="text-center text-purple-600 text-2xl font-medium">My Posts</h1>
             <PostsList posts={props.userDB.posts} user={true} />
             <FriendshipsContainer userDB={props.userDB}/>
             </div>

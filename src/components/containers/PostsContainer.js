@@ -29,6 +29,7 @@ class PostsContainer extends Component {
                 <div>
                     {this.state.buttonClicked ? <PostsForm/> : null }
                 </div>
+                <h1 class="text-center text-purple-600 text-2xl font-medium">All Posts</h1>
                 <PostsList posts={this.props.posts}/>
             </div>
         )

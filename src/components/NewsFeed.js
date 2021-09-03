@@ -6,7 +6,7 @@ const NewsFeed = (props) => {
 
     return(
         <div>
-            <h1>Friends' Posts</h1>
+            <h1 class="text-center text-purple-600 text-2xl font-medium">Tech Connection Feed</h1>
             {props.user.friends && props.user.friends.map((f) => <PostsList posts={f.posts}/>)}
         </div>
     )

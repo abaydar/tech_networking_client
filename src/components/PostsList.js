@@ -19,7 +19,7 @@ class PostsList extends Component{
         <div class="p-4">
            {this.props.posts && this.props.posts.map(p => <ul class="p-4 max-w-sm mx-auto bg-purple-200 rounded-xl shadow-md flex items-center space-x-4 border-2">
         <li key={p.id} >
-            <h3 class="text-xl font-medium text-black"> {p.title} </h3>
+            <h3 class="text-xl font-medium text-purple-700"> {p.title} </h3>
             {this.formatTime(p.created_at)}
             <h4> <strong>by: </strong> {p.user.email}</h4>
             <p> {p.content} </p>
