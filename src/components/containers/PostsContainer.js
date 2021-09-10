@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-
+// import { sortPostsByLikes } from '../../reducers/rootReducer'
 import { fetchPosts } from '../../actions/postsActions'
 import PostsForm from '../PostsForm'
 import PostsList from '../PostsList'
@@ -22,15 +22,21 @@ class PostsContainer extends Component {
         })
       }
 
+
+
+    // sortByLikes = () => {
+    //    return this.state.sortClicked ? this.props.sortedPosts : this.props.posts
+    // }
+
+   
     render(){
         return(
             <div>
-                <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={this.renderForm}>Create Post</button>
-                <div>
+                <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={this.renderForm}>Create Post</button>                <div>
                     {this.state.buttonClicked ? <PostsForm/> : null }
                 </div>
                 <h1 class="text-center text-purple-600 text-2xl font-medium">All Posts</h1>
-                <PostsList posts={this.props.posts}/>
+               <PostsList posts={this.props.posts}/>
             </div>
         )
     }

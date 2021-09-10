@@ -8,3 +8,9 @@ export const rootReducer = combineReducers({
     auth: authReducer,
     postsR: postsReducer
 })
+
+// export const sortPostsByLikes = (state) => {
+//     const posts = state.postsR.posts
+//     debugger
+//     return posts.sort((a,b) => (a.likes < b.likes) ? 1 : -1)
+// }

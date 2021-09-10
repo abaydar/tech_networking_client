@@ -4,6 +4,10 @@ import { addLike } from '../actions/postsActions'
 
 class PostsList extends Component{
     
+    state = {
+        sortClicked: false
+    }
+
     addLike = (post) => {
         this.props.addLike(post)
     }
@@ -14,9 +18,20 @@ class PostsList extends Component{
         return <h4 class="text-sm"><strong> posted: </strong> {date} <strong>@</strong> {time}</h4>
     }
 
+    sortLikesButton = () => {
+        this.setState((prevState) => {
+            return {
+                sortClicked: !prevState.sortClicked
+            }
+        })
+
+        return this.state.sortClicked ? this.props.posts.sort((a,b) => a.likes < b.likes ? 1 : -1) : this.props.posts.sort((a,b) => a.id > b.id ? 1 : -1)
+    }
+
    render(){
     return(
         <div class="p-4">
+        {this.props.newsfeed ? null : <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={this.sortLikesButton}>Sort by likes</button>}
            {this.props.posts && this.props.posts.map(p => <ul class="p-4 max-w-sm mx-auto bg-purple-200 rounded-xl shadow-md flex items-center space-x-4 border-2">
         <li key={p.id} >
             <h3 class="p-4 text-xl font-medium text-purple-800"> {p.title} </h3>
