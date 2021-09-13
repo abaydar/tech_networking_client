@@ -21,13 +21,6 @@ class PostsContainer extends Component {
           return { buttonClicked: !prevState.buttonClicked }
         })
       }
-
-
-
-    // sortByLikes = () => {
-    //    return this.state.sortClicked ? this.props.sortedPosts : this.props.posts
-    // }
-
    
     render(){
         return(
