@@ -6,15 +6,32 @@ import UserCard from './UserCard';
 
 class UsersList extends Component{
     
+    state = {
+        search: ""
+    }
+    
     addFriend = (userId, friendId) => {
         this.props.addFriend(userId, friendId)
+    }
+
+    handleChange = (e) => {
+        this.setState({ search: e.target.value})
+    }
+
+    searchUsers = () => {
+        return this.props.users.filter((u) => {
+            return u.email.toLowerCase().includes(this.state.search.toLowerCase())
+        })
     }
 
     
     render(){
         return(
             <div>
-                {this.props.users.map(user => {
+                <label class="text-xl font-medium text-black">Search Techies: </label>
+                <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent rounded shadow-md " type="text" placeholder="Search..." onChange={this.handleChange}/>
+
+                {this.searchUsers().map(user => {
                     return (
                     <UserCard id={user.id} email={user.email} friendships={user.friendships} posts={user.posts} currentUserId={this.props.authId}/>
                     )
@@ -33,19 +50,3 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, { addFriend })(UsersList)
 
-
-
-// renderUsers = Object.keys(users).map(userId => {
-//     return <ul>
-//     <li key={userId}><Link  to={`/users/${userId}`}>{users[userId].email}</Link> 
-//     <button></button>
-//     </li>
-//     </ul>
-// })
-
-// {Object.keys(this.props.users).map(userId => {
-//     return <ul>
-//     <li key={userId}><Link  to={`/users/${userId}`}>{this.props.users[userId].email}</Link> 
-//     <button onClick={() => this.addFriend(this.props.authId, userId)}>Add Friend</button>
-//     </li>
-//     </ul>})}
