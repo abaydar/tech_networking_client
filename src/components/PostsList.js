@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addLike } from '../actions/postsActions'
+import PostsForm from './PostsForm';
 
 class PostsList extends Component{
     
     state = {
-        sortClicked: false
+        sortClicked: false,
+        buttonClicked: false
     }
 
     addLike = (post) => {
@@ -28,9 +30,19 @@ class PostsList extends Component{
         return this.state.sortClicked ? this.props.posts.sort((a,b) => a.likes < b.likes ? 1 : -1) : this.props.posts.sort((a,b) => a.id > b.id ? 1 : -1)
     }
 
+    renderForm = () => {
+        this.setState((prevState) => {
+          return { buttonClicked: !prevState.buttonClicked }
+        })
+      }
+
    render(){
     return(
         <div class="p-4">
+                {this.props.newsfeed ? null : <button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded" onClick={this.renderForm}>Create Post</button>}               
+                <div>
+                    {this.state.buttonClicked ? <PostsForm/> : null }
+                </div>
         {this.props.newsfeed ? null : <button class="bg-pink-500 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded" onClick={this.sortLikesButton}>Sort by likes</button>}
            {this.props.posts && this.props.posts.map(p => <ul class="p-4 max-w-sm mx-auto bg-purple-200 rounded-xl shadow-md flex items-center space-x-4 border-2">
         <li key={p.id} >
