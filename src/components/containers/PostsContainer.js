@@ -10,12 +10,12 @@ function PostsContainer(props) {
         props.fetchPosts()
     }, [])
 
-        return(
-            <div>
-                <h1 class="text-center text-purple-600 text-2xl font-medium">All Posts</h1>
-               <PostsList posts={props.posts}/>
-            </div>
-        )
+    return(
+        <div>
+            <h1 class="text-center text-purple-600 text-2xl font-medium">All Posts</h1>
+            <PostsList posts={props.posts}/>
+        </div>
+    )
     
 }
 

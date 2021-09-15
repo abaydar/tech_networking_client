@@ -1,11 +1,8 @@
 import React from 'react';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
-
-import Router from './Router'
+import Router from './Router';
 import { useAuth0 } from '@auth0/auth0-react';
-
-// import "../App.css"
 import NavBar from './NavBar';
 
 const App = () => {
