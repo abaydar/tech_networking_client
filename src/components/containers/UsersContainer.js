@@ -1,23 +1,22 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { fetchUsers } from '../../actions/usersActions'
 import UsersList from '../UsersList'
 
 
-class UsersContainer extends Component {
+function UsersContainer(props){
 
-    componentDidMount(){
-        this.props.fetchUsers()
-    }
+    useEffect(() => {
+        props.fetchUsers()
+    }, [])
 
-    render(){
-        return(
-            <div class>
-                <h1 class="text-center text-blue-700 text-2xl font-medium">Fellow Techies</h1>
-                <UsersList users={this.props.users}/>
-           </div>
-        )
-    }
+    return(
+        <div class>
+            <h1 class="text-center text-blue-700 text-2xl font-medium">Fellow Techies</h1>
+            <UsersList users={props.users}/>
+        </div>
+    )
+    
 }
 
 const mapStateToProps = state => {

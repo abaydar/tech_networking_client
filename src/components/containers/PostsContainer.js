@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-// import { sortPostsByLikes } from '../../reducers/rootReducer'
 import { fetchPosts } from '../../actions/postsActions'
-import PostsForm from '../PostsForm'
 import PostsList from '../PostsList'
 
 
-class PostsContainer extends Component {
+function PostsContainer(props) {
 
-    componentDidMount(){
-        this.props.fetchPosts()
-    }
+    useEffect(() => {
+        props.fetchPosts()
+    }, [])
 
-    render(){
         return(
             <div>
                 <h1 class="text-center text-purple-600 text-2xl font-medium">All Posts</h1>
-               <PostsList posts={this.props.posts}/>
+               <PostsList posts={props.posts}/>
             </div>
         )
-    }
+    
 }
 
 const mapStateToProps = state => {
