@@ -1,44 +1,35 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addFriend } from '../actions/usersActions'
 import UserCard from './UserCard';
 
 
-class UsersList extends Component{
+function UsersList(props){
     
-    state = {
-        search: ""
-    }
+    const [search, setSearch] = useState("")
     
-    addFriend = (userId, friendId) => {
-        this.props.addFriend(userId, friendId)
+    const handleChange = (e) => {
+        setSearch(e.target.value)
     }
 
-    handleChange = (e) => {
-        this.setState({ search: e.target.value})
-    }
-
-    searchUsers = () => {
-        return this.props.users.filter((u) => {
-            return u.email.toLowerCase().includes(this.state.search.toLowerCase())
+    const searchUsers = () => {
+        return props.users.filter((u) => {
+            return u.email.toLowerCase().includes(search.toLowerCase())
         })
-    }
+    }    
 
-    
-    render(){
-        return(
-            <div>
-                <label class="text-xl font-medium text-black">Search Techies: </label>
-                <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent rounded shadow-md " type="text" placeholder="Search..." onChange={this.handleChange}/>
+    return(
+        <div>
+            <label class="text-xl font-medium text-black">Search Techies: </label>
+            <input class="border border-transparent focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent rounded shadow-md " type="text" placeholder="Search..." onChange={handleChange}/>
 
-                {this.searchUsers().map(user => {
-                    return (
-                    <UserCard id={user.id} email={user.email} friendships={user.friendships} posts={user.posts} currentUserId={this.props.authId}/>
-                    )
-                })}
-            </div>
-        )
-    }
+            {searchUsers().map(user => {
+                return (
+                <UserCard id={user.id} email={user.email} friendships={user.friendships} posts={user.posts} currentUserId={props.authId}/>
+                )
+            })}
+        </div>
+    )
+
 }
 
 const mapStateToProps = (state) => {
@@ -48,5 +39,5 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { addFriend })(UsersList)
+export default connect(mapStateToProps)(UsersList)
 
